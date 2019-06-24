@@ -1,12 +1,16 @@
-// server.js
-// where your node app starts
 
-// init project
-const express = require('express');
+require('dotenv').config();
+const express    = require('express');
+const mongoose   = require('mongoose');
+
 const app = express();
 
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.DB, {useNewUrlParser: true});
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
@@ -14,6 +18,25 @@ app.use(express.static('public'));
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/', function(request, response) {
   response.sendFile(__dirname + '/views/index.html');
+});
+
+
+//Sample front-end
+app.route('/page')
+  .get(function (req, res) {
+    res.sendFile(__dirname + '/views/test.html');
+  })
+
+
+
+// import your route
+require('./route/api')(app);
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  console.log('connected! to DB')
 });
 
 // listen for requests :)

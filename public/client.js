@@ -1,42 +1,23 @@
-// client-side js
-// run by the browser each time your view template is loaded
 
-console.log('hello world :o');
+window.onload = function() {
+  
+  const Form = document.getElementsByTagName('form')[0]; // select form tag..
 
-// our default array of dreams
-const dreams = [
-  'Find and count some sheep',
-  'Climb a really tall mountain',
-  'Wash the dishes'
-];
 
-// define variables that reference elements on our page
-const dreamsList = document.getElementById('dreams');
-const dreamsForm = document.forms[0];
-const dreamInput = dreamsForm.elements['dream'];
+  Form.onsubmit = checkForm; // when form submit
+  Form.skills[13].onchange = () => { // when item 13 is checked
+    let pass = !Form.skills[13].checked;
+    Form.item.required = !pass;
+  }
 
-// a helper function that creates a list item for a given dream
-const appendNewDream = function(dream) {
-  const newListItem = document.createElement('li');
-  newListItem.innerHTML = dream;
-  dreamsList.appendChild(newListItem);
+
+  function checkForm(e){
+    let skills = this.skills;
+    for(let i in skills) if(skills[i].checked) return alert('Updated');
+    e.preventDefault();
+    alert("Please select the tech used to build project");
+    skills[0].focus();
+    return false;
+  }
+
 }
-
-// iterate through every dream and add it to our page
-dreams.forEach( function(dream) {
-  appendNewDream(dream);
-});
-
-// listen for the form to be submitted and add a new dream when it is
-dreamsForm.onsubmit = function(event) {
-  // stop our form submission from refreshing the page
-  event.preventDefault();
-
-  // get dream value and add it to the list
-  dreams.push(dreamInput.value);
-  appendNewDream(dreamInput.value);
-
-  // reset form 
-  dreamInput.value = '';
-  dreamInput.focus();
-};

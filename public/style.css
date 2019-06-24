@@ -1,71 +1,104 @@
-/* styles */
-/* called by your view template */
-
-* {
-  box-sizing: border-box;
-}
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
 
 body {
-  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
-  margin: 2em;
+   font-family: 'Raleway', Helvetica, sans-serif;
+  background: pink;
+  color: #333;
+}
+header, main #description, #div-submit {
+  text-align: center;
 }
 
-h1 {
-  font-style: italic;
-  color: #373fff;
+main {
+  width: 75%;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-bottom: 10%;
+  box-shadow: 2px 2px 5px black;
 }
 
-.bold {
-  font-weight: bold;
-}
-
-p {
-  max-width: 600px;
-}
-
-form {
-  margin-bottom: 25px;
-  padding: 15px;
-  background-color: cyan;
-  display: inline-block;
+main form .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
   width: 100%;
-  max-width: 340px;
-  border-radius: 3px;
 }
 
-input {
-  display: block;
-  margin-bottom: 10px;
-  padding: 5px;
-  width: 100%;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-  font-size: 16px;
+main form .rowLeft {
+  display: flex;
+  justify-content: flex-end;
+  width: 49%;
+  margin-top: 6px;
+}
+main form .rowRight {
+  width: 49%;
 }
 
-button {
-  font-size: 16px;
-  border-radius: 3px;
-  background-color: lightgrey;
-  border: 1px solid grey;
-  box-shadow: 2px 2px teal;
+main form fieldset {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+main form fieldset .row{
+  justify-content: flex-end;
+}
+
+main form .row .inputs {
+  width: 60%;
+  padding: 8px;
+  border: 1px solid #c0c0c0;
+  border-radius: 2px;
+}
+
+main form .row select {
+  padding: 8px;
+  border: 1px solid #c0c0c0;
+  border-radius: 2px;
+}
+
+main form #submit {
+    background-color: #59ace0;
+    border-radius: 4px;
+    color: white;
+    font-size: 1em;
+    height: 40px;
+    width: 96px;
+    margin: 10px;
+    border: 0px solid;
+}
+
+main form #submit:hover {
   cursor: pointer;
+  background-color: dodgerblue;
 }
 
-button:hover {
-  background-color: yellow;
+main form .row .skills {
+  margin-bottom: 10px;
 }
 
-button:active {
-  box-shadow: none;
+
+@media (max-width: 1100px) {
+  main form .row .inputs {
+    width: 80%;
+  }
 }
 
-li {
-  margin-bottom: 5px;
-}
 
-footer {
-  margin-top: 50px;
-  padding-top: 25px;
-  border-top: 1px solid lightgrey;
+@media (max-width: 600px) {
+  main form .row {
+    padding: 20px;
+    flex-direction: column;
+  }
+  main form .rowLeft{
+    justify-content: flex-start;
+    margin-bottom: 18px;
+}
+  main form .rowRight {
+  width: 80%;
+}
+  main form .row .inputs {
+    width: 100%;
+  }
 }

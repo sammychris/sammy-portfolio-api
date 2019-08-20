@@ -1,0 +1,80 @@
+@import 'https://fonts.googleapis.com/css?family=Share+Tech+Mono';
+
+body {
+  background: #1e2326;
+  font-family: Share Tech Mono, monospace;
+  padding: 0;
+  margin: 0;
+  h1 { 
+    text-align: center;
+    color: #d8d5d5;
+    margin: 60px auto;
+    font-size: 40px;
+    font-weight: lighter;
+  }
+  #root {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #calculator {
+      height: 450px;
+      width: 80%;
+      max-width: 280px;
+      box-shadow: -5px 10px 10px 0px black;
+      border-radius: 3px;
+      #output {
+        background: #fafafa;
+        height: 30%;
+        border-radius: 2px;
+        padding: 10px 20px;
+        #input {
+          height: 30%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          font-size: 22px;
+        }
+        #display {
+          height: 70%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-end;
+          font-size: 40px;
+        }
+      }
+      #buttons div {
+        font-weight: lighter;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background: #1e2326;
+        border: 0;
+        border-top: 1px solid #2b3033;
+        border-right: 1px solid #2b3033;
+        color: #fff;
+        border-radius: 2px;
+      }
+      
+      #buttons div:active {
+        border: 0;
+        box-shadow: inset 0 0 4px 1px black;
+      }
+      #buttons {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          height: 66%;
+        #clear { 
+          grid-area: 1/1/2/3;
+          background: #5e4bb6;
+        }
+        #zero { grid-area: 5/1/6/3; }
+        #equals { 
+          background: #fec208;
+          grid-area: 4/4/6/5;
+        }
+       }
+    }
+  }
+}

@@ -13,19 +13,19 @@ mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DB, {useNewUrlParser: true});
 
 // http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/views/index.html');
-});
+// app.get('/', function(request, response) {
+//   response.sendFile(__dirname + '/views/index.html');
+// });
 
 
 //Sample front-end
-app.route('/page')
-  .get(function (req, res) {
-    res.sendFile(__dirname + '/views/test.html');
-  })
+// app.route('/page')
+//   .get(function (req, res) {
+//     res.sendFile(__dirname + '/views/test.html');
+//   })
 
 
 
